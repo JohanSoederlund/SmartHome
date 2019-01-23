@@ -1,0 +1,20 @@
+{
+  "name": "smarthome",
+  "version": "0.1.0",
+  "private": false,
+  "author": "Johan Söderlund",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "build": ""
+  },
+  "devDependencies": {
+    "koa-logger": "^2.0.1"
+  }
+}
