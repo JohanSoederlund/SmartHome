@@ -1,0 +1,238 @@
+[
+{
+    "user": "Johan",
+    "name": "Johans apartment",
+    "lightbulbs": [
+        {
+            "lightbulbName": "kitchenLightbulb", "on": true, "runTime": 65400, "lifeTime": 100000, "watt": 60
+        },
+        {
+            "lightbulbName": "bedroomLightbulb", "on": false, "runTime": 43100, "lifeTime": 120000, "watt": 30
+        }
+    ],
+    "doors": [
+        {
+            "doorName": "frontDoor", "open": true, "locked": false
+        },
+        {
+            "doorName": "balconyDoor", "open": false, "locked": true
+        }
+    ],
+    "windows": [
+        {
+            "windowName": "kitchenWindow", "open": true, "locked": false
+        },
+        {
+            "windowName": "bedroomWindow", "open": false, "locked": true
+        }
+    ],
+    "cars": [
+        {
+            "carName": "Tesla model 3", "locked": true, "battery": 100, "location": "Latitude: 59.4044829, Longitude: 17.9804469"
+        }
+    ],
+    "computers": [
+        {
+            "computerName": "Raspberry pi 3B+", "on": true, "battery": false, "purpose": "Surveilence camera"
+        },
+        {
+            "computerName": "Predator Orion 9000", "on": false, "battery": false, "purpose": "Gaming"
+        },
+        {
+            "computerName": "Ubuntu workstation", "on": true, "battery": false, "purpose": "Software development"
+        }
+    ]
+},
+
+{
+    "user": "Olle",
+    "name": "Olles apartment",
+    "lightbulbs": [
+        {
+            "lightbulbName": "kitchenLightbulb", "on": true, "runTime": 65400, "lifeTime": 100000, "watt": 60
+        },
+        {
+            "lightbulbName": "bedroomLightbulb", "on": false, "runTime": 43100, "lifeTime": 120000, "watt": 30
+        },
+        {
+            "lightbulbName": "hallLightbulb", "on": false, "runTime": 13100, "lifeTime": 120000, "watt": 40
+        }
+    ],
+    "doors": [
+        {
+            "doorName": "frontDoor", "open": false, "locked": true
+        },
+        {
+            "doorName": "balconyDoor", "open": false, "locked": true
+        }
+    ],
+    "windows": [
+        {
+            "windowName": "kitchenWindow", "open": false, "locked": true
+        },
+        {
+            "windowName": "bedroomWindow", "open": false, "locked": true
+        }
+    ],
+    "cars": [
+        {
+            "carName": "Tesla model S", "locked": false, "battery": 99, "location": "Latitude: 29.4044829, Longitude: 27.9804469"
+        }
+    ],
+    "computers": [
+        {
+            "computerName": "Arduino", "on": true, "battery": false, "purpose": "Temperature web API"
+        },
+        {
+            "computerName": "Lenovo ThinkPad", "on": false, "battery": 77, "purpose": "Writing books"
+        },
+        {
+            "computerName": "HP Desktop", "on": true, "battery": false, "purpose": "Gaming"
+        }
+    ]
+},
+
+{
+    "user": "Elin",
+    "name": "Elins apartment",
+    "lightbulbs": [
+        {
+            "lightbulbName": "kitchenLightbulb", "on": true, "runTime": 65400, "lifeTime": 100000, "watt": 60
+        },
+        {
+            "lightbulbName": "bedroomLightbulb", "on": false, "runTime": 43100, "lifeTime": 120000, "watt": 30
+        },
+        {
+            "lightbulbName": "hallLightbulb", "on": false, "runTime": 13100, "lifeTime": 120000, "watt": 40
+        }
+    ],
+    "doors": [
+        {
+            "doorName": "frontDoor", "open": false, "locked": true
+        },
+        {
+            "doorName": "balconyDoor", "open": false, "locked": true
+        }
+    ],
+    "windows": [
+        {
+            "windowName": "kitchenWindow", "open": false, "locked": true
+        },
+        {
+            "windowName": "bedroomWindow", "open": false, "locked": true
+        }
+    ]
+},
+
+{
+    "user": "Josefin",
+    "name": "Josefins apartment",
+    "lightbulbs": [
+        {
+            "lightbulbName": "kitchenLightbulb", "on": true, "runTime": 65400, "lifeTime": 100000, "watt": 60
+        },
+        {
+            "lightbulbName": "kitchenLightbulb2", "on": true, "runTime": 65400, "lifeTime": 100000, "watt": 60
+        },
+        {
+            "lightbulbName": "bedroomLightbulb", "on": false, "runTime": 43100, "lifeTime": 120000, "watt": 30
+        },
+        {
+            "lightbulbName": "bedroomLightbulb2", "on": false, "runTime": 43100, "lifeTime": 120000, "watt": 30
+        },
+        {
+            "lightbulbName": "hallLightbulb", "on": false, "runTime": 13100, "lifeTime": 120000, "watt": 40
+        },
+        {
+            "lightbulbName": "hallLightbulb2", "on": false, "runTime": 13100, "lifeTime": 120000, "watt": 40
+        }
+    ],
+    "doors": [
+        {
+            "doorName": "frontDoor", "open": false, "locked": true
+        },
+        {
+            "doorName": "balconyDoor", "open": false, "locked": true
+        }
+    ],
+    "windows": [
+        {
+            "windowName": "kitchenWindow", "open": false, "locked": true
+        },
+        {
+            "windowName": "bedroomWindow", "open": false, "locked": true
+        }
+    ]
+},
+
+{
+    "user": "Klara",
+    "name": "Klaras apartment",
+    "lightbulbs": [
+        {
+            "lightbulbName": "kitchenLightbulb", "on": true, "runTime": 25400, "lifeTime": 100000, "watt": 60
+        },
+        {
+            "lightbulbName": "kitchenLightbulb2", "on": true, "runTime": 15400, "lifeTime": 100000, "watt": 60
+        },
+        {
+            "lightbulbName": "bedroomLightbulb3", "on": false, "runTime": 23100, "lifeTime": 100000, "watt": 30
+        },
+        {
+            "lightbulbName": "bedroomLightbulb2", "on": false, "runTime": 43100, "lifeTime": 120000, "watt": 30
+        },
+        {
+            "lightbulbName": "hallLightbulb", "on": false, "runTime": 1310, "lifeTime": 120000, "watt": 40
+        },
+        {
+            "lightbulbName": "hallLightbulb2", "on": false, "runTime": 1100, "lifeTime": 120000, "watt": 40
+        },
+        {
+            "lightbulbName": "hallLightbulb3", "on": false, "runTime": 3100, "lifeTime": 120000, "watt": 40
+        }
+    ]
+},
+
+{
+    "user": "Klara",
+    "name": "Klaras Mansion",
+    "lightbulbs": [
+        {
+            "lightbulbName": "officeLightbulb", "on": true, "runTime": 400, "lifeTime": 100000, "watt": 100
+        },
+        {
+            "lightbulbName": "bedroomLightbulb", "on": false, "runTime": 2100, "lifeTime": 120000, "watt": 30
+        }
+    ],
+    "doors": [
+        {
+            "doorName": "frontDoor", "open": false, "locked": true
+        },
+        {
+            "doorName": "balconyDoor", "open": false, "locked": true
+        }
+    ],
+    "windows": [
+        {
+            "windowName": "officeWindow", "open": true, "locked": false
+        },
+        {
+            "windowName": "bedroomWindow", "open": false, "locked": true
+        }
+    ],
+    "cars": [
+        {
+            "carName": "Tesla model X", "locked": true, "battery": 40, "location": "Latitude: 39.4044829, Longitude: 57.9804469"
+        }
+    ],
+    "computers": [
+        {
+            "computerName": "HP pavillion", "on": true, "battery": false, "purpose": "streaming"
+        },
+        {
+            "computerName": "Macbook air", "on": false, "battery": 77, "purpose": "blogging"
+        }
+    ]
+}
+
+]

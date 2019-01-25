@@ -5,13 +5,17 @@
   "author": "Johan Söderlund",
   "license": "MIT",
   "dependencies": {
+    "fs": "0.0.1-security",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
+    "koa-helmet": "^4.0.0",
     "koa-router": "^7.4.0",
+    "mongodb": "^3.1.12",
+    "mongoose": "^5.4.6",
     "nodemon": "^1.18.9"
   },
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon app/index.js",
     "build": ""
   },
   "devDependencies": {

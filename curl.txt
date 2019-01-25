@@ -1,0 +1,45 @@
+curl -X POST \
+  http://localhost:3000/homes \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  --data '{
+    "user": "Liza",
+    "name": "Lizas mansion",
+    "lightbulbs": [
+        {
+            "lightbulbName": "officeLightbulb", "on": true, "runTime": 400, "lifeTime": 100000, "watt": 100
+        },
+        {
+            "lightbulbName": "bedroomLightbulb", "on": false, "runTime": 2100, "lifeTime": 120000, "watt": 30
+        }
+    ],
+    "doors": [
+        {
+            "doorName": "frontDoor", "open": false, "locked": true
+        },
+        {
+            "doorName": "balconyDoor", "open": false, "locked": true
+        }
+    ],
+    "windows": [
+        {
+            "windowName": "officeWindow", "open": true, "locked": false
+        },
+        {
+            "windowName": "bedroomWindow", "open": false, "locked": true
+        }
+    ],
+    "cars": [
+        {
+            "carName": "Tesla model X", "locked": true, "battery": 40, "location": "Latitude: 39.4044829, Longitude: 57.9804469"
+        }
+    ],
+    "computers": [
+        {
+            "computerName": "HP pavillion", "on": true, "battery": false, "purpose": "streaming"
+        },
+        {
+            "computerName": "Macbook air", "on": false, "battery": 77, "purpose": "blogging"
+        }
+    ]
+    }'
