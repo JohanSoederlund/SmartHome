@@ -21,7 +21,7 @@ const router = new Router();
 router.get("/", async function (ctx) {
     ctx.response.status = 200;
     ctx.body = {
-      Home: "HOME"
+      links: {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"}
     };
     
 });
@@ -31,7 +31,13 @@ router.get("/homes", async function (ctx) {
         await DatabaseManager.findHomes({user: ctx.state.user.user})
         .then((homes, success) => {
             ctx.body = homes.value;
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes"};
             if (success) {
+                let i = 0;
+                homes.forEach(element => {
+                    i++;
+                    ctx.body.links[element.name] = "/homes/" + element._id;
+                });
                 ctx.response.status = 200;
             } else {
                 ctx.response.status = 400;
@@ -51,7 +57,9 @@ router.post("/homes", async function (ctx) {
         await DatabaseManager.saveNewHome(home)
         .then( (result) => {
             ctx.body = result.value;
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (result.success) {
+                ctx.body.links[result.value.name] = "/homes/" + result.value._id;
                 ctx.response.status = 201;
             } else {
                 ctx.response.status = 400;
@@ -68,6 +76,7 @@ router.delete("/homes", async function (ctx) {
         await DatabaseManager.deleteHomes({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
         .then((homes, success) => {
             ctx.body = homes;
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success) ctx.response.status = 200;
             else ctx.response.status = 400;
         })
@@ -81,7 +90,13 @@ router.head("/homes", async function (ctx) {
     try {
         await DatabaseManager.findHomes({user: ctx.state.user.user})
         .then((homes, success) => {
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success ) {
+                let i = 0;
+                homes.forEach(element => {
+                    i++;
+                    ctx.body.links[element.name] = "/homes/" + element._id;
+                });
                 ctx.response.status = 200;
             } else {
                 ctx.response.status = 403;
@@ -95,10 +110,12 @@ router.head("/homes", async function (ctx) {
 router.get("/homes/:id", async function (ctx) {
     try {
         await DatabaseManager.findHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
-        .then((homes, success) => {
+        .then((result, success) => {
+            ctx.body = result;
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success ) {
                 ctx.response.status = 200;
-                ctx.body = homes;
+                ctx.body.links[result.value.name] = "/homes/" + result.value._id;
             } else {
                 ctx.response.status = 403;
             }
@@ -116,10 +133,12 @@ router.put("/homes/:id", async function (ctx) {
         await DatabaseManager.updateHome(home)
         .then( (result) => {
             ctx.body = result.value;
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (result.success) {
+                ctx.body.links[result.value.name] = "/homes/" + result.value._id;
                 ctx.response.status = 200;
             } else {
-                ctx.response.status = 400;
+                ctx.response.status = 403;
             }
         });
     } catch (error) {
@@ -136,10 +155,12 @@ router.patch("/homes/:id", async function (ctx) {
         await DatabaseManager.patchHome(home)
         .then( (result) => {
             ctx.body = result.value;
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (result.success) {
+                ctx.body.links[result.value.name] = "/homes/" + result.value._id;
                 ctx.response.status = 200;
             } else {
-                ctx.response.status = 400;
+                ctx.response.status = 403;
             }
         });
     } catch (error) {
@@ -153,6 +174,7 @@ router.delete("/homes/:id", async function (ctx) {
         await DatabaseManager.deleteHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
         .then((homes, success) => {
             ctx.body = homes;
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success) ctx.response.status = 200;
             else ctx.response.status = 400;
         })
@@ -166,7 +188,13 @@ router.head("/homes/:id", async function (ctx) {
     try {
         await DatabaseManager.findHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
         .then((homes, success) => {
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success ) {
+                let i = 0;
+                homes.forEach(element => {
+                    i++;
+                    ctx.body.links[element.name] = "/homes/" + element._id;
+                });
                 ctx.response.status = 200;
             } else {
                 ctx.response.status = 403;
@@ -185,6 +213,7 @@ router.post("/register", async function (ctx) {
         await DatabaseManager.saveNewUser(user)
         .then( (result) => {
             ctx.body = result.value;
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (result.success) {
                 ctx.response.status = 201;
             } else {
@@ -201,9 +230,10 @@ router.post("/login", async function (ctx) {
     try {
         await DatabaseManager.findUser({user: ctx.request.body.user, password: ctx.request.body.password })
         .then( (result) => {
+            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (result.success) {
                 ctx.response.status = 200;
-                ctx.body = {"token": result.value.token}
+                ctx.body.token = result.value.token;
             } else {
                 ctx.response.status = 401;
             }
