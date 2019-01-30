@@ -1,0 +1,8 @@
+curl -X POST \
+  http://localhost:3000/login \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  --data '{
+    "user": "Liza",
+    "password": "qwerty123"
+    }'

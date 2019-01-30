@@ -20,6 +20,6 @@ let homeSchema = new mongoose.Schema({
     computers: {  }
   });
 
-let Home = mongoose.model('Game', homeSchema);
+let Home = mongoose.model('Home', homeSchema);
 
 module.exports = Home;

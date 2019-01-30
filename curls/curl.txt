@@ -1,10 +1,11 @@
 curl -X POST \
-  http://localhost:3000/homes \
+  http://localhost:3000/homes/ \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU0ODg0MzY4Nn0.NSpJd6BJcbiEG18mkoTycuUAaZX7F--_PB-am3EdPtY' \
   --data '{
     "user": "Liza",
-    "name": "Lizas mansion",
+    "name": "Lizas mansion2",
     "lightbulbs": [
         {
             "lightbulbName": "officeLightbulb", "on": true, "runTime": 400, "lifeTime": 100000, "watt": 100
@@ -15,7 +16,7 @@ curl -X POST \
     ],
     "doors": [
         {
-            "doorName": "frontDoor", "open": false, "locked": true
+            "doorName": "hej", "open": false, "locked": true
         },
         {
             "doorName": "balconyDoor", "open": false, "locked": true
