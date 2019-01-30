@@ -5,6 +5,7 @@
   "author": "Johan Söderlund",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.4.0",
     "koa": "^2.6.2",

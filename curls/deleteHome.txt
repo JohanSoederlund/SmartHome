@@ -1,0 +1,6 @@
+curl -X DELETE \
+  http://localhost:3000/homes/5c5178c9bb49774f224dc054 \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU0ODg0MzY4Nn0.NSpJd6BJcbiEG18mkoTycuUAaZX7F--_PB-am3EdPtY' \
+  --data '{}'

@@ -4,10 +4,9 @@
 const mongoose =require('mongoose');
 const DatabaseModel = require('../database/databaseModel');
 const LoginModel = require('../database/loginModel');
-
+const Webhook = require('../app/webhook');
 
 const connectionString = 'mongodb://localhost:27017';
-
    
 function connectDatabase() {
     //mongoose.connect(connectionString, { useNewUrlParser: true })
@@ -36,13 +35,18 @@ function saveNewHome(home) {
             reject({value: "Wrong schema error", success: false});
         } 
         findHome({user: home.user, name: home.name}).then( (existingHome) => {
-            console.log(existingHome);
             if (existingHome.value === null) {
                 home.save( (err, saved)=> {
                     if(err) reject({value: err, success: false});
-                    resolve({value: saved, success: true});
+                    findUser({user: home.user})
+                    .then( (user) => {
+                        Webhook.postToCallback(user.value, saved);
+                        resolve({value: saved, success: true});
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
                 })
-               
             } else {
                 reject({value: "Home allready exist: " + home, success: false});
             }
@@ -54,7 +58,6 @@ function saveNewHome(home) {
 }
 
 function updateHome(home) {
-    
     return new Promise((resolve, reject) => {
         if(JSON.stringify(home.schema) !== JSON.stringify(DatabaseModel.schema)) {
             reject({value: "Wrong schema error", success: false});
@@ -65,21 +68,11 @@ function updateHome(home) {
             setDefaultsOnInsert: true
         };
         findHome({user: home.user, name: home.name}).then( (existingHome) => {
-            console.log(existingHome);
             if (existingHome !== null) {
                 DatabaseModel.findOneAndUpdate(existingHome, home, options, (err, saved) => {
-                    console.log("SAVED\n"+saved);
                     if (err) reject({value: err, success: false});
                     resolve({value: saved, success: true});
-                });
-/*
-                DatabaseModel.findByIdAndUpdate(home._id, home, options, (err, saved) => {
-                    console.log("SAVED\n"+saved);
-                    if (err) reject({value: err, success: false});
-                    resolve({value: saved, success: true});
-                });
-                */
-               
+                });              
             } else {
                 reject({value: "Home does not exist: " + {user: home.user, name: home.name}, success: false});
             }
@@ -88,6 +81,65 @@ function updateHome(home) {
             reject({value: error, success: false});
         });
     })
+}
+
+function patchHome(home) {
+    return new Promise((resolve, reject) => {
+        if(JSON.stringify(home.schema) !== JSON.stringify(DatabaseModel.schema)) {
+            reject({value: "Wrong schema error", success: false});
+        } 
+        const options = {
+            strict: false,
+            upsert: false,
+            setDefaultsOnInsert: true
+        };
+        findHome({user: home.user, name: home.name}).then( (existingHome) => {
+            if (existingHome !== null) {
+                let patchedHome = existingHome;
+                if (typeof(home.lightbulbs) === "undefined") patchedHome.lightbulbs = home.lightbulbs;
+                if (typeof(home.doors) === "undefined") patchedHome.doors = home.doors;
+                if (typeof(home.windows) === "undefined") patchedHome.windows = home.windows;
+                if (typeof(home.cars) === "undefined") patchedHome.cars = home.cars;
+                if (typeof(home.computers) === "undefined") patchedHome.computers = home.computers;
+
+                DatabaseModel.findOneAndUpdate(existingHome, patchedHome, options, (err, saved) => {
+                    if (err) reject({value: err, success: false});
+                    resolve({value: saved, success: true});
+                });              
+            } else {
+                reject({value: "Home does not exist: " + {user: home.user, name: home.name}, success: false});
+            }
+        })
+        .catch((error) => {
+            reject({value: error, success: false});
+        });
+    })
+}
+
+function deleteHome(home) {
+    return new Promise((resolve, reject) => {
+        DatabaseModel.deleteOne(home)
+        .then( (err, result) => {
+            if (err) reject(err); 
+            resolve({value: result, success: true});
+        })
+    })
+    .catch((error) => {
+        reject({value: error, success: false});
+    });
+}
+
+function deleteHomes(homes) {
+    return new Promise((resolve, reject) => {
+        DatabaseModel.deleteMany(homes)
+        .then( (err, result) => {
+            if (err) reject(err); 
+            resolve({value: result, success: true});
+        })
+    })
+    .catch((error) => {
+        reject({value: error, success: false});
+    });
 }
 
 /**
@@ -117,9 +169,9 @@ function findHomes(home) {
     });
 }
 
-function dropCollection() {
+function dropCollection(collection) {
     return new Promise((resolve, reject) => {
-        mongoose.connection.db.dropCollection( "homes" )
+        mongoose.connection.db.dropCollection( collection )
         .then( (response) => {
             resolve(response);
         })
@@ -165,8 +217,6 @@ function findUser(user) {
 }
 
 
-
-
 module.exports = {
     connectDatabase,
     disconnectDatabase,
@@ -174,7 +224,10 @@ module.exports = {
     findHome,
     findHomes,
     updateHome,
+    patchHome,
     dropCollection,
     saveNewUser,
-    findUser
+    findUser,
+    deleteHome,
+    deleteHomes
 }
