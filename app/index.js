@@ -57,7 +57,7 @@ app.use(kJwt({ secret: SECRET }).unless({ path: [/^\//, /^\/homes/, /^\/drop/, /
 //app.use(decode({ secret: SECRET }));  //.unless({ path: [/^\//, /^\/homes/, /^\/drop/, /^\/register/, /^\/login/] }));
 
 app.use(async (ctx, next) => {
-    ctx.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, HEAD');
+    ctx.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, HEAD');
     ctx.set({accept: 'application/json'});
     await next();
 })

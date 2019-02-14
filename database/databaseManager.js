@@ -44,11 +44,11 @@ function saveNewHome(home) {
                         resolve({value: saved, success: true});
                     })
                     .catch((error) => {
-                        console.log(error);
+                        reject({value: "Webhook error", success: false});
                     });
                 })
             } else {
-                reject({value: "Home allready exist: " + home, success: false});
+                reject({value: "Home allready exist", success: false});
             }
         })
         .catch((error) => {
@@ -57,89 +57,82 @@ function saveNewHome(home) {
     })
 }
 
-function updateHome(home) {
+function updateHome(home, user) {
     return new Promise((resolve, reject) => {
-        if(JSON.stringify(home.schema) !== JSON.stringify(HomeModel.schema)) {
+        if (home.user !== user) {
+            reject({value: "Forbidden", success: false});
+        }
+        try {
+            new HomeModel(home);
+        } catch (error) {
             reject({value: "Wrong schema error", success: false});
-        } 
+        }
         const options = {
             strict: false,
             upsert: false,
-            setDefaultsOnInsert: true
+            setDefaultsOnInsert: true,
+            useFindAndModify: false,
+            new: true,
+            overwrite: true
         };
-        findHome({user: home.user, name: home.name}).then( (existingHome) => {
-            if (existingHome !== null) {
-                HomeModel.findOneAndUpdate(existingHome, home, options, (err, saved) => {
-                    if (err) reject({value: err, success: false});
-                    resolve({value: saved, success: true});
-                });              
-            } else {
-                reject({value: "Home does not exist: " + {user: home.user, name: home.name}, success: false});
-            }
-        })
-        .catch((error) => {
-            reject({value: error, success: false});
-        });
+        HomeModel.findOneAndUpdate({user: home.user, name: home.name}, home, options, (err, saved) => {
+            if (saved === null) reject({value: "Home does not exist", success: false});
+            if (err) reject({value: "Home does not exist", success: false});
+            resolve({value: saved, success: true});
+        });    
+       
     })
 }
 
-function patchHome(home) {
+function patchHome(home, user) {
     return new Promise((resolve, reject) => {
-        if(JSON.stringify(home.schema) !== JSON.stringify(HomeModel.schema)) {
+        if (home.user !== user) {
+            reject({value: "Forbidden", success: false});
+        }
+        try {
+            new HomeModel(home);
+        } catch (error) {
             reject({value: "Wrong schema error", success: false});
-        } 
+        }
         const options = {
             strict: false,
             upsert: false,
-            setDefaultsOnInsert: true
+            setDefaultsOnInsert: true, 
+            useFindAndModify: false,
+            new: true
         };
-        findHome({user: home.user, name: home.name}).then( (existingHome) => {
-            if (existingHome !== null) {
-                let patchedHome = existingHome;
-                if (typeof(home.lightbulbs) === "undefined") patchedHome.lightbulbs = home.lightbulbs;
-                if (typeof(home.doors) === "undefined") patchedHome.doors = home.doors;
-                if (typeof(home.windows) === "undefined") patchedHome.windows = home.windows;
-                if (typeof(home.cars) === "undefined") patchedHome.cars = home.cars;
-                if (typeof(home.computers) === "undefined") patchedHome.computers = home.computers;
 
-                HomeModel.findOneAndUpdate(existingHome, patchedHome, options, (err, saved) => {
-                    if (err) reject({value: err, success: false});
-                    resolve({value: saved, success: true});
-                });              
-            } else {
-                reject({value: "Home does not exist: " + {user: home.user, name: home.name}, success: false});
-            }
-        })
-        .catch((error) => {
-            reject({value: error, success: false});
-        });
+        HomeModel.findOneAndUpdate({user: home.user, name: home.name}, home, options, (err, saved) => {
+            if (saved === null) reject({value: "Home does not exist", success: false});
+            if (err) reject({value: "Home does not exist", success: false});
+            resolve({value: saved, success: true});
+        });     
     })
 }
-
 function deleteHome(home) {
     return new Promise((resolve, reject) => {
-        HomeModel.deleteOne(home)
-        .then( (err, result) => {
-            if (err) reject(err); 
-            resolve({value: result, success: true});
-        })
+        findHome({"_id": home._id}).then((res) => {
+            if (res.value.user !== home.user) reject({value: "Forbidden", success: false});
+            HomeModel.deleteOne(home, (err, result) => {
+                if (err) reject({value: "Home does not exist", success: false}); 
+                resolve({value: home, success: true});
+            }).catch((error) => {
+                reject({value: error, success: false});
+            });
+        }).catch((error) => {
+            reject({value: error, success: false});
+        });
     })
-    .catch((error) => {
-        reject({value: error, success: false});
-    });
+    
 }
 
 function deleteHomes(homes) {
     return new Promise((resolve, reject) => {
-        HomeModel.deleteMany(homes)
-        .then( (err, result) => {
-            if (err) reject(err); 
-            resolve({value: result, success: true});
+        HomeModel.deleteMany(homes, (err, result) => {
+            if (err) reject({value: "Home does not exist", success: false}); 
+            resolve({value: homes, success: true});
         })
     })
-    .catch((error) => {
-        reject({value: error, success: false});
-    });
 }
 
 /**
@@ -147,12 +140,13 @@ function deleteHomes(homes) {
  */
 function findHome(home) {
     return new Promise((resolve, reject) => {
+        
         HomeModel.findOne(home)
         .then((home) => {
             resolve({value: home, success: true});
         })
         .catch((error) => {
-            reject({value: "Home does not exist: " + home, success: false});
+            reject({value: "Home does not exist", success: false});
         });
     });
 }
@@ -164,7 +158,7 @@ function findHomes(home) {
             resolve({value: homes, success: true});
         })
         .catch((error) => {
-            reject({value: "Home does not exist: " + home, success: false});
+            reject({value: "Home does not exist", success: false});
         });
     });
 }

@@ -1,0 +1,685 @@
+{
+	"info": {
+		"_postman_id": "78bfac28-a5c4-4a04-b853-9bf518868ce9",
+		"name": "SmartHome",
+		"description": "Smart Home REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/register Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\",\n    \"webhookCallback\": \"http://localhost:3000/\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/login Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Lars\",\n    \"password\": \"asdqwe123\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"garage\", \"on\": true, \"runTime\": 100, \"lifeTime\": 1021300, \"watt\": 400\n        },\n        {\n            \"lightbulbName\": \"garage2\", \"on\": false, \"runTime\": 21230, \"lifeTime\": 1134000, \"watt\": 30\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "POST /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6586f520df8b5c245aed03"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6586f520df8b5c245aed03"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"garage\",\n                \"on\": true,\n                \"runTime\": 100,\n                \"lifeTime\": 1021300,\n                \"watt\": 400\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6586f520df8b5c245aed03"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6586f520df8b5c245aed03"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6586f520df8b5c245aed03"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes Lars",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/register Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\",\n    \"webhookCallback\": \"http://localhost:3000/\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/login Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Lizas apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ],\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"windows\": [\n        {\n            \"windowName\": \"officeWindow\", \"open\": true, \"locked\": false\n        },\n        {\n            \"windowName\": \"bedroomWindow\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "POST /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes Liza2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Lizas apartment2\",\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "POST /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c653fbfb46c5a31d6f8fc42",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c653fbfb46c5a31d6f8fc42"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		}
+	]
+}

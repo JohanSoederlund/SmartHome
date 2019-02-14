@@ -22,6 +22,7 @@ const router = new Router();
  * Every route below.
  */
 router.get("/", async function (ctx) {
+    ctx.body = {};
     ctx.response.status = 200;
     let user;
     let user2;
@@ -49,16 +50,15 @@ router.get("/", async function (ctx) {
 });
 
 router.get("/homes", decode({ secret: SECRET }), async function (ctx) {
-    
+    ctx.body = {};
     try {
-        console.log(ctx.state.user.user);
         await DatabaseManager.findHomes({user: ctx.state.user.user})
-        .then((homes, success) => {
-            ctx.body = homes.value;
+        .then((homes) => {
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes"};
-            if (success) {
+            ctx.body.homes = homes.value;
+            if (homes.success) {
                 let i = 0;
-                homes.forEach(element => {
+                homes.value.forEach(element => {
                     i++;
                     ctx.body.links[element.name] = "/homes/" + element._id;
                 });
@@ -75,14 +75,15 @@ router.get("/homes", decode({ secret: SECRET }), async function (ctx) {
 });
 
 router.post("/homes", decode({ secret: SECRET }), async function (ctx) {
+    ctx.body = {};
     try {
         let home = ctx.request.body;
         home.user = ctx.state.user.user;
         home = new HomeModel(home);
         await DatabaseManager.saveNewHome(home)
         .then( (result) => {
-            ctx.body = result.value;
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.homes = result.value;
             if (result.success) {
                 ctx.body.links[result.value.name] = "/homes/" + result.value._id;
                 ctx.response.status = 201;
@@ -97,12 +98,13 @@ router.post("/homes", decode({ secret: SECRET }), async function (ctx) {
 });
 
 router.delete("/homes", decode({ secret: SECRET }), async function (ctx) {
+    ctx.body = {};
     try {
         await DatabaseManager.deleteHomes({user: ctx.state.user.user})
-        .then((homes, success) => {
-            ctx.body = homes;
+        .then((homes) => {
+            ctx.body.homes = homes.value;
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
-            if (success) ctx.response.status = 200;
+            if (homes.success) ctx.response.status = 200;
             else ctx.response.status = 400;
         })
     } catch (error) {
@@ -110,14 +112,16 @@ router.delete("/homes", decode({ secret: SECRET }), async function (ctx) {
         ctx.body = error;
     }
 });
-
+/*
 router.head("/homes", decode({ secret: SECRET }), async function (ctx) {
+    ctx.response.status = 400;
+    ctx.body = {};
+    
     try {
         await DatabaseManager.findHomes({user: ctx.state.user.user})
-        .then((homes, success) => {
-            ctx.body = {};
+        .then((homes) => {
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
-            if (success ) {
+            if (homes.success ) {
                 let i = 0;
                 homes.forEach(element => {
                     i++;
@@ -125,25 +129,7 @@ router.head("/homes", decode({ secret: SECRET }), async function (ctx) {
                 });
                 ctx.response.status = 200;
             } else {
-                ctx.response.status = 403;
-            }
-        })
-    } catch (error) {
-        ctx.body = error;
-    }
-});
-
-router.get("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
-    try {
-        await DatabaseManager.findHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
-        .then((result, success) => {
-            ctx.body = result.value;
-            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
-            if (success ) {
-                ctx.response.status = 200;
-                ctx.body.links[result.value.name] = "/homes/" + result.value._id;
-            } else {
-                ctx.response.status = 403;
+                ctx.response.status = 400;
             }
         })
     } catch (error) {
@@ -151,21 +137,61 @@ router.get("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
     }
     
 });
+*/
+
+router.get("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
+    ctx.body = {};
+    try {
+        await DatabaseManager.findHome({"_id": ObjectID(ctx.params.id)})
+        .then((result) => {
+            if (result.value === null) {
+              ctx.response.status = 400;
+              ctx.body = "Home does not exist";
+            } 
+            else if (result.value.user !== ctx.state.user.user) {
+                ctx.response.status = 403;
+                ctx.body = "This resource does not belong to you!";
+            } else {
+                ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+                ctx.body.homes = result.value;
+                if (result.success) {
+                    ctx.response.status = 200;
+                    ctx.body.links[result.value.name] = "/homes/" + result.value._id;
+                } else {
+                    ctx.response.status = 400;
+                }
+            }
+        }).catch ( (error)=> {
+            ctx.response.status = 400;
+            ctx.body = error;
+        });
+    } catch (error) {
+        ctx.body = error;
+    }
+});
 
 router.put("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
+    ctx.body = {};
     try {
+        
         let home = ctx.request.body;
-        home.user = ctx.state.user.user;
-        home = new HomeModel(home);
-        await DatabaseManager.updateHome(home)
+        await DatabaseManager.updateHome(home, ctx.state.user.user)
         .then( (result) => {
-            ctx.body = result.value;
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.homes = result.value;
             if (result.success) {
                 ctx.body.links[result.value.name] = "/homes/" + result.value._id;
                 ctx.response.status = 200;
             } else {
                 ctx.response.status = 403;
+            }
+        }).catch ( (error)=> {
+            if (error.value === "Forbidden") {
+                ctx.response.status = 403;
+                ctx.body = "This resource does not belong to you!";
+            } else {
+                ctx.response.status = 400;
+                ctx.body = error;
             }
         });
     } catch (error) {
@@ -175,19 +201,26 @@ router.put("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
 });
 
 router.patch("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
+    ctx.body = {};
     try {
         let home = ctx.request.body;
-        home.user = ctx.state.user.user;
-        home = new HomeModel(home);
-        await DatabaseManager.patchHome(home)
+        await DatabaseManager.patchHome(home, ctx.state.user.user)
         .then( (result) => {
-            ctx.body = result.value;
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.homes = result.value;
             if (result.success) {
                 ctx.body.links[result.value.name] = "/homes/" + result.value._id;
                 ctx.response.status = 200;
             } else {
+                ctx.response.status = 400;
+            }
+        }).catch ( (error)=> {
+            if (error.value === "Forbidden") {
                 ctx.response.status = 403;
+                ctx.body = "This resource does not belong to you!";
+            } else {
+                ctx.response.status = 400;
+                ctx.body = error;
             }
         });
     } catch (error) {
@@ -197,27 +230,46 @@ router.patch("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
 });
 
 router.delete("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
+    ctx.body = {};
     try {
         await DatabaseManager.deleteHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
-        .then((homes, success) => {
-            ctx.body = homes.value;
+        .then((homes) => {
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
-            if (success) ctx.response.status = 200;
+            ctx.body.homes = homes.value;
+            if (homes.success) ctx.response.status = 200;
             else ctx.response.status = 400;
-        })
+        }).catch ( (error)=> {
+            if (error.value === "Forbidden") {
+                ctx.response.status = 403;
+                ctx.body = "This resource does not belong to you!";
+            } else {
+                ctx.response.status = 400;
+                ctx.body = error;
+            }
+        });
     } catch (error) {
         ctx.response.status = 400;
         ctx.body = error;
     }
 });
 
+/*
 router.head("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
+    ctx.body = {};
     try {
+        await DatabaseManager.findHome({"_id": ObjectID(ctx.params.id)})
+        .then((result) => {
+            if (result.value.user !== ctx.state.user.user) {
+                ctx.response.status = 403;
+                ctx.body = "This resource does not belong to you!";
+            } else {
+                
+            }
+        });
         await DatabaseManager.findHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
-        .then((homes, success) => {
-            ctx.body = {};
+        .then((homes) => {
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
-            if (success ) {
+            if (homes.success ) {
                 let i = 0;
                 homes.forEach(element => {
                     i++;
@@ -227,21 +279,31 @@ router.head("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
             } else {
                 ctx.response.status = 403;
             }
-        })
+        }).catch ( (error)=> {
+            if (error.value === "Forbidden") {
+                ctx.response.status = 403;
+                ctx.body = "This resource does not belong to you!";
+            } else {
+                ctx.response.status = 400;
+                ctx.body = error;
+            }
+        });
     } catch (error) {
         ctx.body = error;
     }
 });
+*/
 
 router.post("/register", async function (ctx) {
+    ctx.body = {};
     try {
         let user = {user: ctx.request.body.user, password: ctx.request.body.password, 
             token: jwt.sign({ user: ctx.request.body.user }, SECRET), webhookCallback: ctx.request.body.webhookCallback};
         user = new LoginModel(user);
         await DatabaseManager.saveNewUser(user)
         .then( (result) => {
-            ctx.body = result.value;
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body = result.value;
             if (result.success) {
                 ctx.response.status = 201;
             } else {
@@ -255,10 +317,10 @@ router.post("/register", async function (ctx) {
 });
 
 router.post("/login", async function (ctx) {
+    ctx.body = {};
     try {
         await DatabaseManager.findUser({user: ctx.request.body.user, password: ctx.request.body.password })
         .then( (result) => {
-            ctx.body = {};
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (result.success) {
                 ctx.response.status = 200;
