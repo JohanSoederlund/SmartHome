@@ -2,7 +2,7 @@
 
 // Imports
 const mongoose =require('mongoose');
-const DatabaseModel = require('../database/databaseModel');
+const HomeModel = require('./homeModel');
 const LoginModel = require('../database/loginModel');
 const Webhook = require('../app/webhook');
 
@@ -31,7 +31,7 @@ function disconnectDatabase() {
 
 function saveNewHome(home) {
     return new Promise((resolve, reject) => {
-        if(JSON.stringify(home.schema) !== JSON.stringify(DatabaseModel.schema)) {
+        if(JSON.stringify(home.schema) !== JSON.stringify(HomeModel.schema)) {
             reject({value: "Wrong schema error", success: false});
         } 
         findHome({user: home.user, name: home.name}).then( (existingHome) => {
@@ -59,7 +59,7 @@ function saveNewHome(home) {
 
 function updateHome(home) {
     return new Promise((resolve, reject) => {
-        if(JSON.stringify(home.schema) !== JSON.stringify(DatabaseModel.schema)) {
+        if(JSON.stringify(home.schema) !== JSON.stringify(HomeModel.schema)) {
             reject({value: "Wrong schema error", success: false});
         } 
         const options = {
@@ -69,7 +69,7 @@ function updateHome(home) {
         };
         findHome({user: home.user, name: home.name}).then( (existingHome) => {
             if (existingHome !== null) {
-                DatabaseModel.findOneAndUpdate(existingHome, home, options, (err, saved) => {
+                HomeModel.findOneAndUpdate(existingHome, home, options, (err, saved) => {
                     if (err) reject({value: err, success: false});
                     resolve({value: saved, success: true});
                 });              
@@ -85,7 +85,7 @@ function updateHome(home) {
 
 function patchHome(home) {
     return new Promise((resolve, reject) => {
-        if(JSON.stringify(home.schema) !== JSON.stringify(DatabaseModel.schema)) {
+        if(JSON.stringify(home.schema) !== JSON.stringify(HomeModel.schema)) {
             reject({value: "Wrong schema error", success: false});
         } 
         const options = {
@@ -102,7 +102,7 @@ function patchHome(home) {
                 if (typeof(home.cars) === "undefined") patchedHome.cars = home.cars;
                 if (typeof(home.computers) === "undefined") patchedHome.computers = home.computers;
 
-                DatabaseModel.findOneAndUpdate(existingHome, patchedHome, options, (err, saved) => {
+                HomeModel.findOneAndUpdate(existingHome, patchedHome, options, (err, saved) => {
                     if (err) reject({value: err, success: false});
                     resolve({value: saved, success: true});
                 });              
@@ -118,7 +118,7 @@ function patchHome(home) {
 
 function deleteHome(home) {
     return new Promise((resolve, reject) => {
-        DatabaseModel.deleteOne(home)
+        HomeModel.deleteOne(home)
         .then( (err, result) => {
             if (err) reject(err); 
             resolve({value: result, success: true});
@@ -131,7 +131,7 @@ function deleteHome(home) {
 
 function deleteHomes(homes) {
     return new Promise((resolve, reject) => {
-        DatabaseModel.deleteMany(homes)
+        HomeModel.deleteMany(homes)
         .then( (err, result) => {
             if (err) reject(err); 
             resolve({value: result, success: true});
@@ -147,7 +147,7 @@ function deleteHomes(homes) {
  */
 function findHome(home) {
     return new Promise((resolve, reject) => {
-        DatabaseModel.findOne(home)
+        HomeModel.findOne(home)
         .then((home) => {
             resolve({value: home, success: true});
         })
@@ -159,7 +159,7 @@ function findHome(home) {
 
 function findHomes(home) {
     return new Promise((resolve, reject) => {
-        DatabaseModel.find(home)
+        HomeModel.find(home)
         .then((homes) => {
             resolve({value: homes, success: true});
         })
@@ -187,8 +187,6 @@ function saveNewUser(user) {
             reject({value: "Wrong schema error", success: false});
         } 
         findUser({user: user.user, password: user.password}).then( (existingUser) => {
-            console.log("EXISTINGUSER");
-            console.log(existingUser);
             if (existingUser.value === null) {
                 user.save( (err, saved)=> {
                     if(err) reject({value: err, success: false});

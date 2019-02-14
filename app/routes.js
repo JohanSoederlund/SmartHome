@@ -3,9 +3,12 @@
 const Router = require("koa-router");
 const ObjectID = require("mongodb").ObjectID;
 const jwt = require('jsonwebtoken');
+const kJwt = require('koa-jwt');
+const decode = require('koa-jwt-decode');
+
 
 const DatabaseManager = require("../database/databaseManager");
-const DatabaseModel = require("../database/databaseModel");
+const HomeModel = require("../database/homeModel");
 const LoginModel = require("../database/loginModel");
 
 /**
@@ -20,14 +23,35 @@ const router = new Router();
  */
 router.get("/", async function (ctx) {
     ctx.response.status = 200;
+    let user;
+    let user2;
+    let homes;
+    await DatabaseManager.findUser({user: "Liza"}).then ( (res)=> {
+        user = res;
+    })
+    await DatabaseManager.findUser({user: "Lars"}).then ( (res)=> {
+        user2 = res;
+    })
+    await DatabaseManager.findHomes({}).then ( (res)=> {
+        homes = res;
+    })
+
+    ctx.body = {
+        user: user,
+        user2: user2,
+        homes: homes
+    }
+    /*
     ctx.body = {
       links: {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"}
     };
-    
+    */
 });
 
-router.get("/homes", async function (ctx) {
+router.get("/homes", decode({ secret: SECRET }), async function (ctx) {
+    
     try {
+        console.log(ctx.state.user.user);
         await DatabaseManager.findHomes({user: ctx.state.user.user})
         .then((homes, success) => {
             ctx.body = homes.value;
@@ -47,13 +71,14 @@ router.get("/homes", async function (ctx) {
         ctx.response.status = 400;
         ctx.body = error;
     }
+    
 });
 
-router.post("/homes", async function (ctx) {
+router.post("/homes", decode({ secret: SECRET }), async function (ctx) {
     try {
         let home = ctx.request.body;
         home.user = ctx.state.user.user;
-        home = new DatabaseModel(ctx.request.body);
+        home = new HomeModel(home);
         await DatabaseManager.saveNewHome(home)
         .then( (result) => {
             ctx.body = result.value;
@@ -71,9 +96,9 @@ router.post("/homes", async function (ctx) {
     }
 });
 
-router.delete("/homes", async function (ctx) {
+router.delete("/homes", decode({ secret: SECRET }), async function (ctx) {
     try {
-        await DatabaseManager.deleteHomes({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
+        await DatabaseManager.deleteHomes({user: ctx.state.user.user})
         .then((homes, success) => {
             ctx.body = homes;
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
@@ -86,10 +111,11 @@ router.delete("/homes", async function (ctx) {
     }
 });
 
-router.head("/homes", async function (ctx) {
+router.head("/homes", decode({ secret: SECRET }), async function (ctx) {
     try {
         await DatabaseManager.findHomes({user: ctx.state.user.user})
         .then((homes, success) => {
+            ctx.body = {};
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success ) {
                 let i = 0;
@@ -107,11 +133,11 @@ router.head("/homes", async function (ctx) {
     }
 });
 
-router.get("/homes/:id", async function (ctx) {
+router.get("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
     try {
         await DatabaseManager.findHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
         .then((result, success) => {
-            ctx.body = result;
+            ctx.body = result.value;
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success ) {
                 ctx.response.status = 200;
@@ -123,13 +149,14 @@ router.get("/homes/:id", async function (ctx) {
     } catch (error) {
         ctx.body = error;
     }
+    
 });
 
-router.put("/homes/:id", async function (ctx) {
+router.put("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
     try {
         let home = ctx.request.body;
         home.user = ctx.state.user.user;
-        home = new DatabaseModel(ctx.request.body);
+        home = new HomeModel(home);
         await DatabaseManager.updateHome(home)
         .then( (result) => {
             ctx.body = result.value;
@@ -147,11 +174,11 @@ router.put("/homes/:id", async function (ctx) {
     }
 });
 
-router.patch("/homes/:id", async function (ctx) {
+router.patch("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
     try {
         let home = ctx.request.body;
         home.user = ctx.state.user.user;
-        home = new DatabaseModel(ctx.request.body);
+        home = new HomeModel(home);
         await DatabaseManager.patchHome(home)
         .then( (result) => {
             ctx.body = result.value;
@@ -169,11 +196,11 @@ router.patch("/homes/:id", async function (ctx) {
     }
 });
 
-router.delete("/homes/:id", async function (ctx) {
+router.delete("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
     try {
         await DatabaseManager.deleteHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
         .then((homes, success) => {
-            ctx.body = homes;
+            ctx.body = homes.value;
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success) ctx.response.status = 200;
             else ctx.response.status = 400;
@@ -184,10 +211,11 @@ router.delete("/homes/:id", async function (ctx) {
     }
 });
 
-router.head("/homes/:id", async function (ctx) {
+router.head("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
     try {
         await DatabaseManager.findHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
         .then((homes, success) => {
+            ctx.body = {};
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (success ) {
                 let i = 0;
@@ -230,6 +258,7 @@ router.post("/login", async function (ctx) {
     try {
         await DatabaseManager.findUser({user: ctx.request.body.user, password: ctx.request.body.password })
         .then( (result) => {
+            ctx.body = {};
             ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (result.success) {
                 ctx.response.status = 200;
@@ -239,6 +268,7 @@ router.post("/login", async function (ctx) {
             }
         })
     } catch (error) {
+        console.log(error);
         ctx.response.status = 401;
         ctx.body = error;
     }
@@ -255,17 +285,6 @@ router.get("/drop", async function (ctx) {
     await DatabaseManager.dropCollection(users).then( (result) => {
         ctx.redirect('/homes');
     })
-});
-
-/**
- * For development reasons, remove in production
- */
-router.get("/login", async function (ctx) {
-    await DatabaseManager.findUser({})
-    .then((result) => {
-        ctx.response.status = 200;
-        ctx.body = result.value;
-    });
 });
 
 //export default router;

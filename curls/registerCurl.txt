@@ -4,6 +4,17 @@ curl -X POST \
   -H 'content-type: application/json' \
   --data '{
     "user": "Liza",
-    "password": "qwerty123",
+    "password": "qwerty1",
+    "webhookCallback": "http://localhost:3000/"
+    }'
+
+
+curl -X POST \
+  http://localhost:3000/register \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  --data '{
+    "user": "Lars",
+    "password": "asdqwe123",
     "webhookCallback": "http://localhost:3000/"
     }'

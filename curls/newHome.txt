@@ -2,7 +2,7 @@ curl -X POST \
   http://localhost:3000/homes/ \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
-  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU0ODg0MzY4Nn0.NSpJd6BJcbiEG18mkoTycuUAaZX7F--_PB-am3EdPtY' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic' \
   --data '{
     "user": "Liza",
     "name": "Lizas mansion16",
@@ -41,6 +41,28 @@ curl -X POST \
         },
         {
             "computerName": "Macbook air", "on": false, "battery": 77, "purpose": "blogging"
+        }
+    ]
+    }'
+
+
+
+
+
+curl -X POST \
+  http://localhost:3000/homes/ \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g' \
+  --data '{
+    "user": "Lars",
+    "name": "Lars apartment34",
+    "lightbulbs": [
+        {
+            "lightbulbName": "garage", "on": true, "runTime": 100, "lifeTime": 1021300, "watt": 400
+        },
+        {
+            "lightbulbName": "garage2", "on": false, "runTime": 21230, "lifeTime": 1134000, "watt": 30
         }
     ]
     }'
