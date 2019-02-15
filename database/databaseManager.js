@@ -1,7 +1,9 @@
 "use strict";
 
 // Imports
-const mongoose =require('mongoose');
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+
 const HomeModel = require('./homeModel');
 const LoginModel = require('../database/loginModel');
 const Webhook = require('../app/webhook');
@@ -31,29 +33,31 @@ function disconnectDatabase() {
 
 function saveNewHome(home) {
     return new Promise((resolve, reject) => {
-        if(JSON.stringify(home.schema) !== JSON.stringify(HomeModel.schema)) {
-            reject({value: "Wrong schema error", success: false});
-        } 
-        findHome({user: home.user, name: home.name}).then( (existingHome) => {
-            if (existingHome.value === null) {
-                home.save( (err, saved)=> {
-                    if(err) reject({value: err, success: false});
-                    findUser({user: home.user})
-                    .then( (user) => {
-                        Webhook.postToCallback(user.value, saved);
-                        resolve({value: saved, success: true});
+        try {
+            home = new HomeModel(home);
+            findHome({user: home.user, name: home.name}).then( (existingHome) => {
+                if (existingHome.value === null) {
+                    home.save( (err, saved)=> {
+                        if(err) reject({value: err, success: false});
+                        findUser({user: home.user}, false)
+                        .then( (user) => {
+                            Webhook.postToCallback(user.value, saved);
+                            resolve({value: saved, success: true});
+                        })
+                        .catch((error) => {
+                            reject({value: "Webhook error", success: false});
+                        });
                     })
-                    .catch((error) => {
-                        reject({value: "Webhook error", success: false});
-                    });
-                })
-            } else {
-                reject({value: "Home allready exist", success: false});
-            }
-        })
-        .catch((error) => {
+                } else {
+                    reject({value: "Home allready exist", success: false});
+                }
+            })
+            .catch((error) => {
+                reject({value: error, success: false});
+            });
+        } catch (error) {
             reject({value: error, success: false});
-        });
+        }
     })
 }
 
@@ -163,9 +167,15 @@ function findHomes(home) {
     });
 }
 
-function dropCollection(collection) {
+function dropCollection(collection1, collection2) {
     return new Promise((resolve, reject) => {
-        mongoose.connection.db.dropCollection( collection )
+        mongoose.connection.db.dropCollection( collection1 )
+        .then( (response) => {
+        })
+        .catch((error) => {
+            //reject("Could not drop collection: \n" + error, false);
+        });
+        mongoose.connection.db.dropCollection( collection2 )
         .then( (response) => {
             resolve(response);
         })
@@ -180,27 +190,51 @@ function saveNewUser(user) {
         if(JSON.stringify(user.schema) !== JSON.stringify(LoginModel.schema)) {
             reject({value: "Wrong schema error", success: false});
         } 
-        findUser({user: user.user, password: user.password}).then( (existingUser) => {
-            if (existingUser.value === null) {
-                user.save( (err, saved)=> {
-                    if(err) reject({value: err, success: false});
-                    resolve({value: saved, success: true});
+
+        bcrypt.genSalt(10, function(err, salt) {
+            if (err) {
+                reject({value: "Internal server error", success: false});
+            };
+
+            bcrypt.hash(user.password, salt, function(err, hash) {
+                if (err) {
+                    reject({value: "Internal server error", success: false});
+                };
+                user.password = hash;
+
+                findUser({user: user.user}, false).then( (existingUser) => {
+                    if (existingUser.value === null) {
+                        user.save( (err, saved)=> {
+                            if(err) reject({value: err, success: false});
+                            resolve({value: saved, success: true});
+                        })
+                    } else {
+                        reject({value: "User allready exist", success: false});
+                    }
                 })
-            } else {
-                reject({value: "User allready exist", success: false});
-            }
-        })
-        .catch((error) => {
-            reject({value: error, success: false});
-        });
+                .catch((error) => {
+                    reject({value: error, success: false});
+                });
+
+            });
+          });
+        
     });
 }
 
-function findUser(user) {
+function findUser(usr, login) {
     return new Promise((resolve, reject) => {
-        LoginModel.findOne(user)
+        LoginModel.findOne({user: usr.user})
         .then((user) => {
-            resolve({value: user, success: true});
+            if (login) {
+                bcrypt.compare(usr.password, user.password, function(err, res) {
+                    if (err) reject({value: "Wrong username or password", success: false});
+                    if (res === false) reject({value: "Wrong username or password", success: false});
+                    else resolve({value: user, success: true});
+                  });
+            } else {
+                resolve({value: user, success: true});
+            }
         })
         .catch((error) => {
             reject({value: "Invalid user credentials", success: false});

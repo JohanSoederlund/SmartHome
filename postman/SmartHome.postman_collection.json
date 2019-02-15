@@ -30,7 +30,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\",\n    \"webhookCallback\": \"http://localhost:3000/\"\n    }"
+					"raw": "{\n    \"user\": \"Lars\",\n    \"password\": \"asdqwe123\",\n    \"webhookCallback\": \"https://webhook.site/898fbdcd-b9b3-476a-b8bd-74ca4f3dad26\"\n    }"
 				},
 				"url": {
 					"raw": "http://localhost:3000/register/",
@@ -98,7 +98,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"value": "{{Lars}}",
 							"type": "string"
 						}
 					]
@@ -140,7 +140,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"value": "{{Lars}}",
 							"type": "string"
 						}
 					]
@@ -182,7 +182,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"value": "{{Lars}}",
 							"type": "string"
 						}
 					]
@@ -201,7 +201,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
+					"raw": "http://localhost:3000/homes/5c66847dac95cc6512d15780",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -209,7 +209,7 @@
 					"port": "3000",
 					"path": [
 						"homes",
-						"5c6586f520df8b5c245aed03"
+						"5c66847dac95cc6512d15780"
 					]
 				},
 				"description": "GET /homes"
@@ -224,7 +224,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"value": "{{Lars}}",
 							"type": "string"
 						}
 					]
@@ -243,7 +243,7 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
+					"raw": "http://localhost:3000/homes/5c66847dac95cc6512d15780",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -251,7 +251,7 @@
 					"port": "3000",
 					"path": [
 						"homes",
-						"5c6586f520df8b5c245aed03"
+						"5c66847dac95cc6512d15780"
 					]
 				},
 				"description": "GET /homes"
@@ -266,7 +266,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"value": "{{Lars}}",
 							"type": "string"
 						}
 					]
@@ -285,7 +285,7 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"garage\",\n                \"on\": true,\n                \"runTime\": 100,\n                \"lifeTime\": 1021300,\n                \"watt\": 400\n            }\n        ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
+					"raw": "http://localhost:3000/homes/5c66847dac95cc6512d15780",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -293,91 +293,7 @@
 					"port": "3000",
 					"path": [
 						"homes",
-						"5c6586f520df8b5c245aed03"
-					]
-				},
-				"description": "GET /homes"
-			},
-			"response": []
-		},
-		{
-			"name": "/homes",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"homes",
-						"5c6586f520df8b5c245aed03"
-					]
-				},
-				"description": "GET /homes"
-			},
-			"response": []
-		},
-		{
-			"name": "/homes/:id Lars",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:3000/homes/5c6586f520df8b5c245aed03",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"homes",
-						"5c6586f520df8b5c245aed03"
+						"5c66847dac95cc6512d15780"
 					]
 				},
 				"description": "GET /homes"
@@ -395,7 +311,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
+							"value": "{{Lars}}",
 							"type": "string"
 						}
 					]
@@ -430,6 +346,134 @@
 			"response": []
 		},
 		{
+			"name": "/homes/:id Lars",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Lars}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c667c682a553c5e791888bb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c667c682a553c5e791888bb"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Lars",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Lars}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c66847dac95cc6512d15780",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c66847dac95cc6512d15780"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Lars}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
 			"name": "/register Liza",
 			"request": {
 				"auth": {
@@ -453,7 +497,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\",\n    \"webhookCallback\": \"http://localhost:3000/\"\n    }"
+					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\",\n    \"webhookCallback\": \"https://webhook.site/898fbdcd-b9b3-476a-b8bd-74ca4f3dad26\"\n    }"
 				},
 				"url": {
 					"raw": "http://localhost:3000/register/",
@@ -521,7 +565,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"value": "{{Liza}}",
 							"type": "string"
 						}
 					]
@@ -563,7 +607,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"value": "{{Liza}}",
 							"type": "string"
 						}
 					]
@@ -605,7 +649,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"value": "{{Liza}}",
 							"type": "string"
 						}
 					]
@@ -647,7 +691,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"value": "{{Liza}}",
 							"type": "string"
 						}
 					]
@@ -666,7 +710,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c653fbfb46c5a31d6f8fc42",
+					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -674,10 +718,388 @@
 					"port": "3000",
 					"path": [
 						"homes",
-						"5c653fbfb46c5a31d6f8fc42"
+						"5c6686e6136b5c67538f3b79"
 					]
 				},
 				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Liza}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas mansion16\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"officeLightbulb\",\n                \"on\": true,\n                \"runTime\": 400,\n                \"lifeTime\": 100000,\n                \"watt\": 100\n            },\n            {\n                \"lightbulbName\": \"bedroomLightbulb\",\n                \"on\": false,\n                \"runTime\": 2100,\n                \"lifeTime\": 120000,\n                \"watt\": 30\n            }\n        ],\n        \"doors\": [\n            {\n                \"doorName\": \"hej\",\n                \"open\": false,\n                \"locked\": true\n            },\n            {\n                \"doorName\": \"balconyDoor\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"windows\": [\n            {\n                \"windowName\": \"officeWindow\",\n                \"open\": true,\n                \"locked\": false\n            },\n            {\n                \"windowName\": \"bedroomWindow\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"cars\": [\n            {\n                \"carName\": \"Tesla model X\",\n                \"locked\": true,\n                \"battery\": 40,\n                \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6686e6136b5c67538f3b79"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Liza}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas mansion16\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"officeLightbulb\",\n                \"on\": true,\n                \"runTime\": 400,\n                \"lifeTime\": 100000,\n                \"watt\": 100\n            },\n            {\n                \"lightbulbName\": \"bedroomLightbulb\",\n                \"on\": false,\n                \"runTime\": 2100,\n                \"lifeTime\": 120000,\n                \"watt\": 30\n            }\n        ],\n        \"doors\": [\n            {\n                \"doorName\": \"hej\",\n                \"open\": false,\n                \"locked\": true\n            },\n            {\n                \"doorName\": \"balconyDoor\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"windows\": [\n            {\n                \"windowName\": \"officeWindow\",\n                \"open\": true,\n                \"locked\": false\n            },\n            {\n                \"windowName\": \"bedroomWindow\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"cars\": [\n            {\n                \"carName\": \"Tesla model X\",\n                \"locked\": true,\n                \"battery\": 40,\n                \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n            }\n        ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6686e6136b5c67538f3b79"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/ Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Liza}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Liza}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6686e6136b5c67538f3b79"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Liza}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6686e6136b5c67538f3b79"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/ Liza",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Liza}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes/:id 403",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Lars}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas mansion16\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"officeLightbulb\",\n                \"on\": true,\n                \"runTime\": 400,\n                \"lifeTime\": 100000,\n                \"watt\": 100\n            },\n            {\n                \"lightbulbName\": \"bedroomLightbulb\",\n                \"on\": false,\n                \"runTime\": 2100,\n                \"lifeTime\": 120000,\n                \"watt\": 30\n            }\n        ],\n        \"doors\": [\n            {\n                \"doorName\": \"hej\",\n                \"open\": false,\n                \"locked\": true\n            },\n            {\n                \"doorName\": \"balconyDoor\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"windows\": [\n            {\n                \"windowName\": \"officeWindow\",\n                \"open\": true,\n                \"locked\": false\n            },\n            {\n                \"windowName\": \"bedroomWindow\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"cars\": [\n            {\n                \"carName\": \"Tesla model X\",\n                \"locked\": true,\n                \"battery\": 40,\n                \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n            }\n        ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						"5c6686e6136b5c67538f3b79"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes 401",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbG",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Lizas apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ],\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"windows\": [\n        {\n            \"windowName\": \"officeWindow\", \"open\": true, \"locked\": false\n        },\n        {\n            \"windowName\": \"bedroomWindow\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "POST /homes"
+			},
+			"response": []
+		},
+		{
+			"name": "/homes Liza 400",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nameZZZZZZZ\": \"Lizas malformed apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/homes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"homes",
+						""
+					]
+				},
+				"description": "POST /homes"
 			},
 			"response": []
 		}

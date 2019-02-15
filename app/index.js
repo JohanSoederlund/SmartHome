@@ -8,8 +8,6 @@ const fs = require("fs");
 const http2 = require("http2");
 const kJwt = require('koa-jwt');
 
-const decode = require('koa-jwt-decode');
-
 const DatabaseManager = require("../database/databaseManager");
 const router = require("../app/routes");
 
@@ -18,7 +16,7 @@ const app = new Koa();
 /**
  * Change to node var in production
  */
-const SECRET = "shared-secret";
+const SECRET =  process.env.SECRET;
 
 /**
  * Todo: HATEOAS
@@ -39,7 +37,7 @@ const options = {
 
 DatabaseManager.connectDatabase();
 
-// Custom 401 handling if you don't want to expose koa-jwt errors to users
+// Custom 401 handling
 app.use(function(ctx, next){
     return next().catch((err) => {
       if (401 == err.status) {
@@ -51,10 +49,7 @@ app.use(function(ctx, next){
     });
 });
 
-//In production remove /^\//,
-app.use(kJwt({ secret: SECRET }).unless({ path: [/^\//, /^\/homes/, /^\/drop/, /^\/register/, /^\/login/] }));
-
-//app.use(decode({ secret: SECRET }));  //.unless({ path: [/^\//, /^\/homes/, /^\/drop/, /^\/register/, /^\/login/] }));
+app.use(kJwt({ secret: SECRET }).unless({ path: [/^\//, /^\/drop/, /^\/register/, /^\/login/] }));
 
 app.use(async (ctx, next) => {
     ctx.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, HEAD');
