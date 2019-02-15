@@ -17,7 +17,7 @@ const router = new Router();
  */
 router.get("/", async function (ctx) {
     ctx.body = {
-      links: {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"}
+      links: {_self: "/", login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"}
     };
 });
 
@@ -25,7 +25,7 @@ router.get("/homes", decode({ secret: SECRET }), async function (ctx) {
     
     try {
         ctx.body = {};
-        ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+        ctx.body.links = {home: "/", login: "/login", register: "/register", _self: "/homes", home: "/homes/:id"};
         await DatabaseManager.findHomes({user: ctx.state.user.user})
         .then((homes) => {
             ctx.body.homes = homes.value;
@@ -54,7 +54,7 @@ router.post("/homes", decode({ secret: SECRET }), async function (ctx) {
         home.user = ctx.state.user.user;
         await DatabaseManager.saveNewHome(home)
         .then( (result) => {
-            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.links = {home: "/", login: "/login", register: "/register", _self: "/homes", home: "/homes/:id"};
             ctx.body.homes = result.value;
             if (result.success) {
                 ctx.body.links[result.value.name] = "/homes/" + result.value._id;
@@ -74,8 +74,8 @@ router.delete("/homes", decode({ secret: SECRET }), async function (ctx) {
     try {
         await DatabaseManager.deleteHomes({user: ctx.state.user.user})
         .then((homes) => {
+            ctx.body.links = {home: "/", login: "/login", register: "/register", _self: "/homes", home: "/homes/:id"};
             ctx.body.homes = homes.value;
-            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (homes.success) ctx.response.status = 200;
             else ctx.response.status = 400;
         })
@@ -98,7 +98,7 @@ router.get("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
                 ctx.response.status = 403;
                 ctx.body = "This resource does not belong to you!";
             } else {
-                ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+                ctx.body.links = {home: "/", login: "/login", register: "/register", homes: "/homes", home: "/homes/:id", _self:"/homes/"+ctx.params.id};
                 ctx.body.homes = result.value;
                 if (result.success) {
                     ctx.response.status = 200;
@@ -123,7 +123,7 @@ router.put("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
         let home = ctx.request.body;
         await DatabaseManager.updateHome(home, ctx.state.user.user)
         .then( (result) => {
-            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.links = {home: "/", login: "/login", register: "/register", homes: "/homes", home: "/homes/:id", _self:"/homes/"+ctx.params.id};
             ctx.body.homes = result.value;
             if (result.success) {
                 ctx.body.links[result.value.name] = "/homes/" + result.value._id;
@@ -152,7 +152,7 @@ router.patch("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
         let home = ctx.request.body;
         await DatabaseManager.patchHome(home, ctx.state.user.user)
         .then( (result) => {
-            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.links = {home: "/", login: "/login", register: "/register", homes: "/homes", home: "/homes/:id", _self:"/homes/"+ctx.params.id};
             ctx.body.homes = result.value;
             if (result.success) {
                 ctx.body.links[result.value.name] = "/homes/" + result.value._id;
@@ -180,7 +180,7 @@ router.delete("/homes/:id", decode({ secret: SECRET }), async function (ctx) {
     try {
         await DatabaseManager.deleteHome({"_id": ObjectID(ctx.params.id), user: ctx.state.user.user})
         .then((homes) => {
-            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.links = {home: "/", login: "/login", register: "/register", homes: "/homes", home: "/homes/:id", _self:"/homes/"+ctx.params.id};
             ctx.body.homes = homes.value;
             if (homes.success) ctx.response.status = 200;
             else ctx.response.status = 400;
@@ -207,7 +207,7 @@ router.post("/register", async function (ctx) {
         user = new LoginModel(user);
         await DatabaseManager.saveNewUser(user)
         .then( (result) => {
-            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.links = {home: "/", login: "/login", _self: "/register", homes: "/homes", home: "/homes/:id"};
             ctx.body = result.value;
             if (result.success) {
                 ctx.response.status = 201;
@@ -227,7 +227,7 @@ router.post("/login", async function (ctx) {
     try {
         await DatabaseManager.findUser({user: ctx.request.body.user, password: ctx.request.body.password }, true)
         .then( (result) => {
-            ctx.body.links = {login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
+            ctx.body.links = {home: "/", _self: "/login", register: "/register", homes: "/homes", home: "/homes/:id"};
             if (result.success) {
                 ctx.response.status = 200;
                 ctx.body.token = result.value.token;

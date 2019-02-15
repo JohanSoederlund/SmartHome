@@ -16,7 +16,6 @@ const SECRET =  process.env.SECRET;
 /**
  * Todo: HATEOAS
  * https://www.npmjs.com/package/koa2-cors
- * let query = JSON.stringify(ctx.request.query);
  */
 
 app.use(BodyParser());
