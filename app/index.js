@@ -26,9 +26,11 @@ const SECRET =  process.env.SECRET;
  * https://www.npmjs.com/package/koa2-cors
  * let query = JSON.stringify(ctx.request.query);
  */
+/*
 app.use(sslify({
   port: 443
 }));
+*/
 app.use(BodyParser());
 app.use(logger());
 app.use(helmet());
@@ -66,8 +68,8 @@ app.use(router.router.routes()).use(router.router.allowedMethods(options));
 
 app.listen(process.env.PORT || 3000);
 
-const https = require('https');
-https.createServer(options, app.callback()).listen(443);
+//const https = require('https');
+//https.createServer(options, app.callback()).listen(443);
 //const server = http2.createSecureServer(options, app.callback());
 
 //server.listen(process.env.PORT || 443);
