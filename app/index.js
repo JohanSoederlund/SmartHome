@@ -32,10 +32,10 @@ app.use(logger());
 app.use(helmet());
 
 const options = {
-    //key: fs.readFileSync('/home/ubuntu/ssl/selfsigned.key'),
-    //cert: fs.readFileSync('/home/ubuntu/ssl/selfsigned.crt'),
-    key: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.key'),
-    cert: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.crt'),
+    key: fs.readFileSync('/home/ubuntu/ssl/selfsigned.key'),
+    cert: fs.readFileSync('/home/ubuntu/ssl/selfsigned.crt'),
+    //key: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.key'),
+    //cert: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.crt'),
 };
 
 DatabaseManager.connectDatabase();
