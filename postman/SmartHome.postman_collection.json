@@ -7,17 +7,45 @@
 	},
 	"item": [
 		{
+			"name": "/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "13.53.201.101/smarthome",
+					"host": [
+						"13",
+						"53",
+						"201",
+						"101"
+					],
+					"path": [
+						"smarthome"
+					]
+				},
+				"description": "GET /homes"
+			},
+			"response": []
+		},
+		{
 			"name": "/register Lars",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [
@@ -33,13 +61,15 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"password\": \"asdqwe123\",\n    \"webhookCallback\": \"https://webhook.site/898fbdcd-b9b3-476a-b8bd-74ca4f3dad26\"\n    }"
 				},
 				"url": {
-					"raw": "http://localhost:3000/register/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/register/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"register",
 						""
 					]
@@ -52,14 +82,7 @@
 			"name": "/login Lars",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGFycyIsImlhdCI6MTU1MDEzOTQzNn0.i94bhEnoRIp5uokNUi7IBQx9DqQWkJd80tYVJXVd_8g",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [
@@ -75,13 +98,15 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"password\": \"asdqwe123\"\n    }"
 				},
 				"url": {
-					"raw": "http://localhost:3000/login/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/login/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"login",
 						""
 					]
@@ -117,13 +142,15 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"garage\", \"on\": true, \"runTime\": 100, \"lifeTime\": 1021300, \"watt\": 400\n        },\n        {\n            \"lightbulbName\": \"garage2\", \"on\": false, \"runTime\": 21230, \"lifeTime\": 1134000, \"watt\": 30\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -159,13 +186,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -201,15 +230,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c66847dac95cc6512d15780",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66a9a43a46f306a3c3442c",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c66847dac95cc6512d15780"
+						"5c66a9a43a46f306a3c3442c"
 					]
 				},
 				"description": "GET /homes"
@@ -243,15 +274,17 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c66847dac95cc6512d15780",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66a9a43a46f306a3c3442c",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c66847dac95cc6512d15780"
+						"5c66a9a43a46f306a3c3442c"
 					]
 				},
 				"description": "GET /homes"
@@ -285,15 +318,17 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"garage\",\n                \"on\": true,\n                \"runTime\": 100,\n                \"lifeTime\": 1021300,\n                \"watt\": 400\n            }\n        ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c66847dac95cc6512d15780",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66a9a43a46f306a3c3442c",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c66847dac95cc6512d15780"
+						"5c66a9a43a46f306a3c3442c"
 					]
 				},
 				"description": "GET /homes"
@@ -330,13 +365,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -375,15 +412,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c667c682a553c5e791888bb",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66a9a43a46f306a3c3442c",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c667c682a553c5e791888bb"
+						"5c66a9a43a46f306a3c3442c"
 					]
 				},
 				"description": "GET /homes"
@@ -417,15 +456,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c66847dac95cc6512d15780",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66a9a43a46f306a3c3442c",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c66847dac95cc6512d15780"
+						"5c66a9a43a46f306a3c3442c"
 					]
 				},
 				"description": "GET /homes"
@@ -459,13 +500,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes"
 					]
 				},
@@ -477,14 +520,7 @@
 			"name": "/register Liza",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [
@@ -500,13 +536,15 @@
 					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\",\n    \"webhookCallback\": \"https://webhook.site/898fbdcd-b9b3-476a-b8bd-74ca4f3dad26\"\n    }"
 				},
 				"url": {
-					"raw": "http://localhost:3000/register/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/register/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"register",
 						""
 					]
@@ -519,14 +557,7 @@
 			"name": "/login Liza",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiTGl6YSIsImlhdCI6MTU1MDEzNzg5Mn0.RDv-4iP8ODyZD9Dz5QQCFlH8EJjTOmnUtILj7SKIRic",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [
@@ -542,13 +573,15 @@
 					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\"\n    }"
 				},
 				"url": {
-					"raw": "http://localhost:3000/login/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/login/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"login",
 						""
 					]
@@ -584,13 +617,15 @@
 					"raw": "{\n    \"name\": \"Lizas apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ],\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"windows\": [\n        {\n            \"windowName\": \"officeWindow\", \"open\": true, \"locked\": false\n        },\n        {\n            \"windowName\": \"bedroomWindow\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -626,13 +661,15 @@
 					"raw": "{\n    \"name\": \"Lizas apartment2\",\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -668,13 +705,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -710,15 +749,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c6686e6136b5c67538f3b79"
+						"5c66aa2a3a46f306a3c34430"
 					]
 				},
 				"description": "GET /homes"
@@ -749,18 +790,20 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas mansion16\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"officeLightbulb\",\n                \"on\": true,\n                \"runTime\": 400,\n                \"lifeTime\": 100000,\n                \"watt\": 100\n            },\n            {\n                \"lightbulbName\": \"bedroomLightbulb\",\n                \"on\": false,\n                \"runTime\": 2100,\n                \"lifeTime\": 120000,\n                \"watt\": 30\n            }\n        ],\n        \"doors\": [\n            {\n                \"doorName\": \"hej\",\n                \"open\": false,\n                \"locked\": true\n            },\n            {\n                \"doorName\": \"balconyDoor\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"windows\": [\n            {\n                \"windowName\": \"officeWindow\",\n                \"open\": true,\n                \"locked\": false\n            },\n            {\n                \"windowName\": \"bedroomWindow\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"cars\": [\n            {\n                \"carName\": \"Tesla model X\",\n                \"locked\": true,\n                \"battery\": 40,\n                \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n            }\n        ]\n}"
+					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas apartment\",\n            \"lightbulbs\": [\n                {\n                    \"lightbulbName\": \"officeLightbulb\",\n                    \"on\": true,\n                    \"runTime\": 400,\n                    \"lifeTime\": 100000,\n                    \"watt\": 100\n                },\n                {\n                    \"lightbulbName\": \"bedroomLightbulb\",\n                    \"on\": false,\n                    \"runTime\": 2100,\n                    \"lifeTime\": 120000,\n                    \"watt\": 30\n                }\n            ],\n            \"doors\": [\n                {\n                    \"doorName\": \"frontDoor\",\n                    \"open\": false,\n                    \"locked\": true\n                },\n                {\n                    \"doorName\": \"balconyDoor\",\n                    \"open\": false,\n                    \"locked\": true\n                }\n            ],\n            \"windows\": [\n                {\n                    \"windowName\": \"officeWindow\",\n                    \"open\": true,\n                    \"locked\": false\n                },\n                {\n                    \"windowName\": \"bedroomWindow\",\n                    \"open\": false,\n                    \"locked\": true\n                }\n            ],\n            \"cars\": [\n                {\n                    \"carName\": \"Tesla model X\",\n                    \"locked\": true,\n                    \"battery\": 40,\n                    \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n                }\n            ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c6686e6136b5c67538f3b79"
+						"5c66aa2a3a46f306a3c34430"
 					]
 				},
 				"description": "GET /homes"
@@ -791,18 +834,20 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas mansion16\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"officeLightbulb\",\n                \"on\": true,\n                \"runTime\": 400,\n                \"lifeTime\": 100000,\n                \"watt\": 100\n            },\n            {\n                \"lightbulbName\": \"bedroomLightbulb\",\n                \"on\": false,\n                \"runTime\": 2100,\n                \"lifeTime\": 120000,\n                \"watt\": 30\n            }\n        ],\n        \"doors\": [\n            {\n                \"doorName\": \"hej\",\n                \"open\": false,\n                \"locked\": true\n            },\n            {\n                \"doorName\": \"balconyDoor\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"windows\": [\n            {\n                \"windowName\": \"officeWindow\",\n                \"open\": true,\n                \"locked\": false\n            },\n            {\n                \"windowName\": \"bedroomWindow\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"cars\": [\n            {\n                \"carName\": \"Tesla model X\",\n                \"locked\": true,\n                \"battery\": 40,\n                \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n            }\n        ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
+					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas apartment\",\n    \"computers\": [\n            {\n                \"computerName\": \"HP pavillion\",\n                \"on\": true,\n                \"battery\": false,\n                \"purpose\": \"streaming\"\n            },\n            {\n                \"computerName\": \"Macbook air\",\n                \"on\": false,\n                \"battery\": 77,\n                \"purpose\": \"blogging\"\n            }\n        ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c6686e6136b5c67538f3b79"
+						"5c66aa2a3a46f306a3c34430"
 					]
 				},
 				"description": "GET /homes"
@@ -836,13 +881,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -878,15 +925,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c6686e6136b5c67538f3b79"
+						"5c66aa2a3a46f306a3c34430"
 					]
 				},
 				"description": "GET /homes"
@@ -920,15 +969,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c6686e6136b5c67538f3b79"
+						"5c66aa2a3a46f306a3c34430"
 					]
 				},
 				"description": "GET /homes"
@@ -962,13 +1013,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -1004,15 +1057,17 @@
 					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas mansion16\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"officeLightbulb\",\n                \"on\": true,\n                \"runTime\": 400,\n                \"lifeTime\": 100000,\n                \"watt\": 100\n            },\n            {\n                \"lightbulbName\": \"bedroomLightbulb\",\n                \"on\": false,\n                \"runTime\": 2100,\n                \"lifeTime\": 120000,\n                \"watt\": 30\n            }\n        ],\n        \"doors\": [\n            {\n                \"doorName\": \"hej\",\n                \"open\": false,\n                \"locked\": true\n            },\n            {\n                \"doorName\": \"balconyDoor\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"windows\": [\n            {\n                \"windowName\": \"officeWindow\",\n                \"open\": true,\n                \"locked\": false\n            },\n            {\n                \"windowName\": \"bedroomWindow\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"cars\": [\n            {\n                \"carName\": \"Tesla model X\",\n                \"locked\": true,\n                \"battery\": 40,\n                \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n            }\n        ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/5c6686e6136b5c67538f3b79",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
-						"5c6686e6136b5c67538f3b79"
+						"5c66aa2a3a46f306a3c34430"
 					]
 				},
 				"description": "GET /homes"
@@ -1046,13 +1101,15 @@
 					"raw": "{\n    \"name\": \"Lizas apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ],\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"windows\": [\n        {\n            \"windowName\": \"officeWindow\", \"open\": true, \"locked\": false\n        },\n        {\n            \"windowName\": \"bedroomWindow\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
@@ -1088,13 +1145,15 @@
 					"raw": "{\n    \"nameZZZZZZZ\": \"Lizas malformed apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/homes/",
-					"protocol": "http",
+					"raw": "13.53.201.101/smarthome/homes/",
 					"host": [
-						"localhost"
+						"13",
+						"53",
+						"201",
+						"101"
 					],
-					"port": "3000",
 					"path": [
+						"smarthome",
 						"homes",
 						""
 					]
