@@ -8,9 +8,6 @@ const decode = require('koa-jwt-decode');
 const DatabaseManager = require("../database/databaseManager");
 const LoginModel = require("../database/loginModel");
 
-/**
- * Change to node var in production
- */
 const SECRET = process.env.SECRET;
 
 const router = new Router();

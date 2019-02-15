@@ -4,21 +4,13 @@ const Koa = require("koa");
 const BodyParser = require("koa-bodyparser");
 const logger = require('koa-logger');
 const helmet = require("koa-helmet");
-const fs = require("fs");
-const http2 = require("http2");
 const kJwt = require('koa-jwt');
-const sslify = require('koa-sslify').default; // factory with default options
- 
-
 
 const DatabaseManager = require("../database/databaseManager");
 const router = require("../app/routes");
 
 const app = new Koa();
 
-/**
- * Change to node var in production
- */
 const SECRET =  process.env.SECRET;
 
 /**
@@ -26,20 +18,12 @@ const SECRET =  process.env.SECRET;
  * https://www.npmjs.com/package/koa2-cors
  * let query = JSON.stringify(ctx.request.query);
  */
-/*
-app.use(sslify({
-  port: 443
-}));
-*/
+
 app.use(BodyParser());
 app.use(logger());
 app.use(helmet());
 
 const options = {
-    key: fs.readFileSync('/home/ubuntu/ssl/selfsigned.key'),
-    cert: fs.readFileSync('/home/ubuntu/ssl/selfsigned.crt'),
-    //key: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.key'),
-    //cert: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.crt'),
 };
 
 DatabaseManager.connectDatabase();
@@ -67,9 +51,3 @@ app.use(async (ctx, next) => {
 app.use(router.router.routes()).use(router.router.allowedMethods(options));
 
 app.listen(process.env.PORT || 3000);
-
-//const https = require('https');
-//https.createServer(options, app.callback()).listen(443);
-//const server = http2.createSecureServer(options, app.callback());
-
-//server.listen(process.env.PORT || 443);
