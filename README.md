@@ -3,7 +3,7 @@
 ### By Johan Söderlund
 
 # SmartHome
-Homepage/entrypoint of [Smart home](https://13.53.201.101/smarthome/).
+Homepage/entrypoint of [Smart home](https://13.53.201.101/smarthome).
 
 Register your smart home to this api and use the CRUD functionality to control your home from anywhere.
 
