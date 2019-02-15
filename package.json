@@ -8,6 +8,7 @@
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "fs": "0.0.1-security",
+    "https": "^1.0.0",
     "jsonwebtoken": "^8.4.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
