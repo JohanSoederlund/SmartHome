@@ -7,6 +7,9 @@ const helmet = require("koa-helmet");
 const fs = require("fs");
 const http2 = require("http2");
 const kJwt = require('koa-jwt');
+const sslify = require('koa-sslify').default; // factory with default options
+ 
+
 
 const DatabaseManager = require("../database/databaseManager");
 const router = require("../app/routes");
@@ -20,21 +23,19 @@ const SECRET =  process.env.SECRET;
 
 /**
  * Todo: HATEOAS
- * const sslify = require('koa-sslify').default; // factory with default options
- * app.use(sslify());
  * https://www.npmjs.com/package/koa2-cors
  * let query = JSON.stringify(ctx.request.query);
  */
-
+app.use(sslify());
 app.use(BodyParser());
 app.use(logger());
 app.use(helmet());
 
 const options = {
-    key: fs.readFileSync('/home/ubuntu/ssl/selfsigned.key'),
-    cert: fs.readFileSync('/home/ubuntu/ssl/selfsigned.crt'),
-    //key: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.key'),
-    //cert: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.crt'),
+    //key: fs.readFileSync('/home/ubuntu/ssl/selfsigned.key'),
+    //cert: fs.readFileSync('/home/ubuntu/ssl/selfsigned.crt'),
+    key: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.key'),
+    cert: fs.readFileSync('/home/johan/studier/1DV527/ssl/selfsigned.crt'),
 };
 
 DatabaseManager.connectDatabase();
