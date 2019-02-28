@@ -16,13 +16,13 @@ const router = new Router();
  * Every route below.
  */
 router.get("/", async function (ctx) {
+    ctx.response.status = 200;
     ctx.body = {
       links: {_self: "/", login: "/login", register: "/register", homes: "/homes", home: "/homes/:id"}
     };
 });
 
 router.get("/homes", decode({ secret: SECRET }), async function (ctx) {
-    
     try {
         ctx.body = {};
         ctx.body.links = {home: "/", login: "/login", register: "/register", _self: "/homes", home: "/homes/:id"};
@@ -44,7 +44,6 @@ router.get("/homes", decode({ secret: SECRET }), async function (ctx) {
         ctx.response.status = 400;
         ctx.body = error;
     }
-    
 });
 
 router.post("/homes", decode({ secret: SECRET }), async function (ctx) {

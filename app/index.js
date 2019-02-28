@@ -13,11 +13,6 @@ const app = new Koa();
 
 const SECRET =  process.env.SECRET;
 
-/**
- * Todo: HATEOAS
- * https://www.npmjs.com/package/koa2-cors
- */
-
 app.use(BodyParser());
 app.use(logger());
 app.use(helmet());
