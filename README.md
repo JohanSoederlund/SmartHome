@@ -16,7 +16,7 @@ Supported appliances:
 
 ## Questions
 
-1. How have you implemented the idea of HATEOAS in your API? Motivate your choices and how it support the idea of HATEOAS.
+**1. How have you implemented the idea of HATEOAS in your API? Motivate your choices and how it support the idea of HATEOAS.**
 
 My API have one entry point, ( https://13.53.201.101/smarthome/ ), and use HATEOAS for making the API browsable. The response body consists of a object called links which contains available links, for example a GET to /smarthome/homes gives the links part of the response like follows:
 
@@ -35,11 +35,11 @@ _self contains the actual state, in this case the response came from /homes.
 
 [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) according to wikipedia the goal is to facilitate for the client to use the api. I chose to do so by always returning the state of the application and also every other possible navigation.
 
-2. If your solution should implement multiple representations of the resources. How would you do it?
+**2. If your solution should implement multiple representations of the resources. How would you do it?**
 
 I would start with offering application/xml and use content negotiation to decide which to send. But by default send json format.
 
-3. Motivate and defend your authentication solution? Why did you choose the one you did? Pros/Cons.
+**3. Motivate and defend your authentication solution? Why did you choose the one you did? Pros/Cons.**
 
 To use the application one needs to register a user with a username and password, (which i hash with a salt). Upon registering an access_token is delivered to the client and also stored in the user-document database. The token can then be used to access resources private to the user. The token must come throuh the Bearer header and it is a JWT that can be verified by my server only. It is valid for 62 days but this will be changed in a later version to be valid a shorter time and a refresh_token will then be used to create a new access_token. 
 
@@ -49,11 +49,11 @@ A pro using jwt is that the token itself cannot be manipulated so as long as the
 
 A con with handling to whole authentication flow, not using frameworks like passport and "outsourcing" user handling to google- and facebook-accounts etc is that their are more potenial points of failure and security misses when you have to do everything yourself. A pro with this strategy is that you don't have to rely on users having accounts on other platforms.
 
-4. Explain how your web hook works.
+**4. Explain how your web hook works.**
 
 Upon registration a user can chose to register a webhook callback url to get data when a new home-resource is created. The callback is stored to the user-model in the database and when a new home-resource is POSTed to my server the route will trigger a postToWebhook middleware which uses 'axios' library to send a POST to the users URL containing the new home-resource in json format.
 
-5. Since this is your first own web API there are probably things you would solve in an other way looking back at this assignment. Write your thoughts down.
+**5. Since this is your first own web API there are probably things you would solve in an other way looking back at this assignment. Write your thoughts down.**
 
 I would separate some business logic from the router and database manager into separate components to get cleaner API-routing- and database-code.
 
@@ -65,7 +65,7 @@ I would separate some business logic from the router and database manager into s
 
 Content-Type: application/json
 
-**https://13.53.201.101/smarthome/**
+**/**
 
 Available methods: GET and HEAD.
 
@@ -128,7 +128,7 @@ Status: 200 OK.
 
 **/homes**
 
-Get all your smart-homes. Create smart-home. Delete smart-home.
+Get all your smart-homes. Create a smart-home. Delete ALL smart-homes.
 
 Available methods: GET, POST, DELETE and HEAD.
 
