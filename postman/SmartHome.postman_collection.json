@@ -26,13 +26,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome",
+					"raw": "https://www.projectsbyjohan.com/smarthome",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome"
@@ -62,13 +61,12 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"password\": \"asdqwe123\",\n    \"webhookCallback\": \"https://webhook.site/898fbdcd-b9b3-476a-b8bd-74ca4f3dad26\"\n    }"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/register/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/register/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -100,13 +98,12 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"password\": \"asdqwe123\"\n    }"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/login/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/login/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -145,13 +142,12 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment34\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"garage\", \"on\": true, \"runTime\": 100, \"lifeTime\": 1021300, \"watt\": 400\n        },\n        {\n            \"lightbulbName\": \"garage2\", \"on\": false, \"runTime\": 21230, \"lifeTime\": 1134000, \"watt\": 30\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -190,13 +186,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -235,13 +230,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c8bbb79a1acf146e1f7149e",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c8bbb79a1acf146e1f7149e",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -280,13 +274,12 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment35\",\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c8bbb79a1acf146e1f7149e",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c8bbb79a1acf146e1f7149e",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -325,13 +318,12 @@
 					"raw": "{\n    \"user\": \"Lars\",\n    \"name\": \"Lars apartment35\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"garage\",\n                \"on\": true,\n                \"runTime\": 100,\n                \"lifeTime\": 1021300,\n                \"watt\": 400\n            }\n        ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c8bbb79a1acf146e1f7149e",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c8bbb79a1acf146e1f7149e",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -373,13 +365,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -421,13 +412,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c8bbb79a1acf146e1f7149e",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c8bbb79a1acf146e1f7149e",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -466,13 +456,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c66a9a43a46f306a3c3442c",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c66a9a43a46f306a3c3442c",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -511,13 +500,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -548,13 +536,12 @@
 					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\",\n    \"webhookCallback\": \"https://webhook.site/898fbdcd-b9b3-476a-b8bd-74ca4f3dad26\"\n    }"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/register/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/register/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -586,13 +573,12 @@
 					"raw": "{\n    \"user\": \"Liza\",\n    \"password\": \"qwerty1\"\n    }"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/login/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/login/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -631,13 +617,12 @@
 					"raw": "{\n    \"name\": \"Lizas apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ],\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"windows\": [\n        {\n            \"windowName\": \"officeWindow\", \"open\": true, \"locked\": false\n        },\n        {\n            \"windowName\": \"bedroomWindow\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -676,13 +661,12 @@
 					"raw": "{\n    \"name\": \"Lizas apartment2\",\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -721,13 +705,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -766,13 +749,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c66aa2a3a46f306a3c34430",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -811,13 +793,12 @@
 					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas apartment\",\n            \"lightbulbs\": [\n                {\n                    \"lightbulbName\": \"officeLightbulb\",\n                    \"on\": true,\n                    \"runTime\": 400,\n                    \"lifeTime\": 100000,\n                    \"watt\": 100\n                },\n                {\n                    \"lightbulbName\": \"bedroomLightbulb\",\n                    \"on\": false,\n                    \"runTime\": 2100,\n                    \"lifeTime\": 120000,\n                    \"watt\": 30\n                }\n            ],\n            \"doors\": [\n                {\n                    \"doorName\": \"frontDoor\",\n                    \"open\": false,\n                    \"locked\": true\n                },\n                {\n                    \"doorName\": \"balconyDoor\",\n                    \"open\": false,\n                    \"locked\": true\n                }\n            ],\n            \"windows\": [\n                {\n                    \"windowName\": \"officeWindow\",\n                    \"open\": true,\n                    \"locked\": false\n                },\n                {\n                    \"windowName\": \"bedroomWindow\",\n                    \"open\": false,\n                    \"locked\": true\n                }\n            ],\n            \"cars\": [\n                {\n                    \"carName\": \"Tesla model X\",\n                    \"locked\": true,\n                    \"battery\": 40,\n                    \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n                }\n            ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c66aa2a3a46f306a3c34430",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -856,13 +837,12 @@
 					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas apartment\",\n    \"computers\": [\n            {\n                \"computerName\": \"HP pavillion\",\n                \"on\": true,\n                \"battery\": false,\n                \"purpose\": \"streaming\"\n            },\n            {\n                \"computerName\": \"Macbook air\",\n                \"on\": false,\n                \"battery\": 77,\n                \"purpose\": \"blogging\"\n            }\n        ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c66aa2a3a46f306a3c34430",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -901,13 +881,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -946,13 +925,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c66aa2a3a46f306a3c34430",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -991,13 +969,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c66aa2a3a46f306a3c34430",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -1036,13 +1013,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -1081,13 +1057,12 @@
 					"raw": "{\n    \"user\": \"Liza\",\n    \"name\": \"Lizas mansion16\",\n    \"lightbulbs\": [\n            {\n                \"lightbulbName\": \"officeLightbulb\",\n                \"on\": true,\n                \"runTime\": 400,\n                \"lifeTime\": 100000,\n                \"watt\": 100\n            },\n            {\n                \"lightbulbName\": \"bedroomLightbulb\",\n                \"on\": false,\n                \"runTime\": 2100,\n                \"lifeTime\": 120000,\n                \"watt\": 30\n            }\n        ],\n        \"doors\": [\n            {\n                \"doorName\": \"hej\",\n                \"open\": false,\n                \"locked\": true\n            },\n            {\n                \"doorName\": \"balconyDoor\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"windows\": [\n            {\n                \"windowName\": \"officeWindow\",\n                \"open\": true,\n                \"locked\": false\n            },\n            {\n                \"windowName\": \"bedroomWindow\",\n                \"open\": false,\n                \"locked\": true\n            }\n        ],\n        \"cars\": [\n            {\n                \"carName\": \"Tesla model X\",\n                \"locked\": true,\n                \"battery\": 40,\n                \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n            }\n        ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/5c66aa2a3a46f306a3c34430",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/5c66aa2a3a46f306a3c34430",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -1126,13 +1101,12 @@
 					"raw": "{\n    \"name\": \"Lizas apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ],\n    \"doors\": [\n        {\n            \"doorName\": \"frontDoor\", \"open\": false, \"locked\": true\n        },\n        {\n            \"doorName\": \"balconyDoor\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"windows\": [\n        {\n            \"windowName\": \"officeWindow\", \"open\": true, \"locked\": false\n        },\n        {\n            \"windowName\": \"bedroomWindow\", \"open\": false, \"locked\": true\n        }\n    ],\n    \"cars\": [\n        {\n            \"carName\": \"Tesla model X\", \"locked\": true, \"battery\": 40, \"location\": \"Latitude: 39.4044829, Longitude: 57.9804469\"\n        }\n    ],\n    \"computers\": [\n        {\n            \"computerName\": \"HP pavillion\", \"on\": true, \"battery\": false, \"purpose\": \"streaming\"\n        },\n        {\n            \"computerName\": \"Macbook air\", \"on\": false, \"battery\": 77, \"purpose\": \"blogging\"\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
@@ -1171,13 +1145,12 @@
 					"raw": "{\n    \"nameZZZZZZZ\": \"Lizas malformed apartment\",\n    \"lightbulbs\": [\n        {\n            \"lightbulbName\": \"officeLightbulb\", \"on\": true, \"runTime\": 400, \"lifeTime\": 100000, \"watt\": 100\n        },\n        {\n            \"lightbulbName\": \"bedroomLightbulb\", \"on\": false, \"runTime\": 2100, \"lifeTime\": 120000, \"watt\": 30\n        }\n    ]\n}"
 				},
 				"url": {
-					"raw": "https://13.48.21.185/smarthome/homes/",
+					"raw": "https://www.projectsbyjohan.com/smarthome/homes/",
 					"protocol": "https",
 					"host": [
-						"13",
-						"48",
-						"21",
-						"185"
+						"www",
+						"projectsbyjohan",
+						"com"
 					],
 					"path": [
 						"smarthome",
