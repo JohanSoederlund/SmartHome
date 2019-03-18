@@ -1,5 +1,9 @@
 ## The web as an application platform - 1DV527
 
+### Updates
+
+Monday March 18: new postman collection.
+
 ### By Johan Söderlund
 
 # SmartHome
